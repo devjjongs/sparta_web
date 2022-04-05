@@ -26,26 +26,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
 
     <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
-    <style>
-        * {
-            font-family: 'Gamja Flower', cursive;
-        }
-
-        .wrap {
-            width: 900px;
-            margin: auto;
-        }
-
-        .comment {
-            color: blue;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="pratice_index_css.css"><!--css 파일 분리하기-->
 </head>
 
 <body>
 
 <div class="wrap">
+
 
     <div class="jumbotron">
         <h1 class="display-4">나홀로 링크 메모장!</h1>
@@ -54,7 +41,19 @@
         <p class="lead">
             <a class="btn btn-primary btn-lg" href="#" role="button">포스팅박스 열기</a>
         </p>
-    </div>
+    </div><!--jumbotron-->
+
+    <div class="posting-box">
+        <div class="form-group">
+            <label for="exampleInputEmail1">아티클 URL</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">간단 코멘트</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">기사저장</button>
+    </div><!--posting box-->
 
     <div class="card-columns">
         <div class="card">
@@ -117,7 +116,7 @@
                 <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
             </div>
         </div>
-    </div>
+    </div><!--post card-->
 
 </div>
 
