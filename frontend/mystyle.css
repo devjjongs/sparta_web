@@ -1,0 +1,66 @@
+        * {
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        .mytitle1 {
+            background-color: green;
+            width: 300px;
+            height: 200px;
+
+            color: white;
+            text-align: center;
+
+            background-image: url("https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg");
+            background-size: cover;
+            background-position: center;
+
+            border-radius: 15px; /*div 모서리 굴곡*/
+
+            padding-top: 20px;
+        }
+
+        .wrap1 {
+
+            width: 300px;
+            margin: auto;
+        }
+
+        .mybtn1 {
+            width: 100px;
+            margin: auto;
+            display: block;
+        }
+
+        /***********************************************/
+
+        .mytitle2 {
+            background-color: aqua;
+            width: 300px;
+            height: 200px;
+
+            color: white;
+            text-align: center;
+
+            background-image: url("https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg");
+            background-size: cover;
+            background-position: center;
+
+            border-radius: 20px;
+
+            padding-top: 20px;
+        }
+
+        .wrap2 {
+            width: 300px;
+            margin: auto;
+        }
+
+        .myinput {
+            margin: auto;
+        }
+
+        .mybtn2 {
+            width: 100px;
+            margin: auto;
+            display: block;
+        }

@@ -3,31 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <title>로그인페이지</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="mystyle.css"><!--css 파일 분리하기-->
+
+    <style>
+        /** {*/
+        /*    font-family: 'Nanum Gothic', sans-serif;*/
+        /*}*/
+
+        /*.mytitle1 {*/
+        /*    background-color: green;*/
+        /*    width: 300px;*/
+        /*    height: 200px;*/
+
+        /*    color: white;*/
+        /*    text-align: center;*/
+
+        /*    background-image: url("https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg");*/
+        /*    background-size: cover;*/
+        /*    background-position: center;*/
+
+        /*    border-radius: 15px; !*div 모서리 굴곡*!*/
+
+        /*    padding-top: 20px;*/
+        /*}*/
+
+        /*.wrap1 {*/
+
+        /*    width: 300px;*/
+        /*    margin: auto;*/
+        /*}*/
+
+        /*.mybtn1 {*/
+        /*    width: 100px;*/
+        /*    margin: auto;*/
+        /*    display: block;*/
+        /*}*/
+
+        /*!***********************************************!*/
+
+        /*.mytitle2 {*/
+        /*    background-color: aqua;*/
+        /*    width: 300px;*/
+        /*    height: 200px;*/
+
+        /*    color: white;*/
+        /*    text-align: center;*/
+
+        /*    background-image: url("https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg");*/
+        /*    background-size: cover;*/
+        /*    background-position: center;*/
+
+        /*    border-radius: 20px;*/
+
+        /*    padding-top: 20px;*/
+        /*}*/
+
+        /*.wrap2 {*/
+        /*    width: 300px;*/
+        /*    margin: auto;*/
+        /*}*/
+
+        /*.myinput {*/
+        /*    margin: auto;*/
+        /*}*/
+
+        /*.mybtn2 {*/
+        /*    width: 100px;*/
+        /*    margin: auto;*/
+        /*    display: block;*/
+        /*}*/
+    </style>
 </head>
 <body>
-<h2>연습퀴즈</h2>
-<h1>로그인 페이지</h1>
-<table>
-    <tr>
-        <th>ID :</th>
-        <th><input autocomplete="off"></th>
-    </tr>
-    <tr>
-        <th>PW :</th>
-        <th><input autocomplete="off"></th>
-    </tr>
-</table>
-<input type="button" value="로그인하기">
+
+<div class="wrap1">
+
+    <div class="mytitle1">
+        <h2>연습퀴즈 해설 코드</h2>
+        <h1>로그인 페이지</h1>
+        <h5>아이디, 패스워드를 입력해주세요</h5>
+    </div>
+
+    <p>ID: <input type="text"/></p>
+    <p>PW: <input type="text"/></p>
+    <button class="mybtn1">로그인하기</button>
+</div>
+
 <br>
 <br>
 <br>
 <br>
 <br>
-<h2>연습퀴즈 해설 코드</h2>
-<h1>로그인 페이지</h1>
-<p>ID: <input type="text"/></p>
-<p>PW: <input type="text"/></p>
-<button>로그인하기</button>
+
+<div class="wrap2">
+    <div class="mytitle2">
+        <h2>연습퀴즈</h2>
+        <h1>로그인 페이지</h1>
+        <h5>아이디, 패스워드를 입력해주세요</h5>
+    </div>
+    <table class="myinput">
+        <tr>
+            <th>ID :</th>
+            <th><input autocomplete="off"></th>
+        </tr>
+        <tr>
+            <th>PW :</th>
+            <th><input autocomplete="off"></th>
+        </tr>
+    </table>
+    <input class="mybtn2" type="button" value="로그인하기">
+</div>
 
 </body>
 </html>
