@@ -1,0 +1,44 @@
+.wrap {
+    width: 500px;
+    margin: auto;
+    font-family: 'Dongle', sans-serif;
+    font-size: 18px;
+}
+
+.product_image {
+    width: 500px;
+    height: 300px;
+    margin: auto;
+
+    background-color: aqua;
+
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDsfqpHnCHBF-_OhlSjco0eNy_JWRM-yYHgA&usqp=CAU");
+    background-position: center;
+    background-size: cover;
+}
+
+.product_info {
+    width: 500px;
+    margin: 20px 0px;
+}
+
+.product_name {
+    font-size: 60px;
+}
+
+.product_price {
+    font-size: 30px;
+}
+
+.product_detail {
+    font-size: 20px;
+}
+
+.order_btn {
+    width: 100px;
+    display: block;
+    margin: auto;
+}
+
+
+
