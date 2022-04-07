@@ -28,8 +28,16 @@
     <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
     <link rel="stylesheet" type="text/css" href="pratice_index_css.css"><!--css 파일 분리하기-->
     <script>
+        let count = 1;
         function hey() {
-            alert('안녕!!!');
+            if (count % 2 == 0) {
+                alert('짝수입니다')
+            } else {
+                alert('홀수입니다.')
+            }
+            count += 1;
+            //  count 사라짐
+            //  변수는 밖에다가 선언하지 않으면 초기화
         }
     </script>
 </head>
