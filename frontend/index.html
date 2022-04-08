@@ -27,7 +27,47 @@
 
     <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
     <link rel="stylesheet" type="text/css" href="pratice_index_css.css"><!--css 파일 분리하기-->
+
     <script>
+        $(document).ready(function () {
+            $('#card-box').empty()
+            listing();
+        });
+
+        function listing() {
+            // 여기에 코드를 입력하세요
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/post",
+                data: {},
+                success: function (response) {
+                    // console.log(response)
+                    let rows = response['articles']
+
+                    for (let i = 0; i < rows.length; i++) {
+                        let comment = rows[i]['comment']
+                        let desc = rows[i]['desc']
+                        let image = rows[i]['image']
+                        let title = rows[i]['title']
+                        let url = rows[i]['url']
+
+                        // console.log(comment, desc, image, title, url)
+
+                        let temp_html = `<div class="card">
+                                            <img class="card-img-top"
+                                                 src="${image}"
+                                                 alt="Card image cap">
+                                            <div class="card-body">
+                                                <a href="${url}" class="card-title">${title}</a>
+                                                <p class="card-text">${desc}</p>
+                                                <p class="card-text comment">${comment}</p>
+                                            </div>
+                                        </div>`;
+                        $('#card-box').append(temp_html)
+                    }
+                }
+            })
+        }
 
         function openclose() {
             let status = $('#post-box').css('display')
