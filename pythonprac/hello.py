@@ -19,4 +19,4 @@ for gu in gus:
 	if (gu_mise > 100):
 		print(gu_name, gu_mise)
 
-# print(rjson['RealtimeCityAir']['row'][0]['NO2'])
+# mongoDB 연결 상태 확인 :  localhost:27017
