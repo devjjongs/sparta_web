@@ -72,6 +72,3 @@ for tr in trs:
 		# print(title)
 		# print(rate.text)
 		print(lank['alt'], title, rate.text)
-
-
-# mongoDB 연결 상태 확인 :  localhost:27017
