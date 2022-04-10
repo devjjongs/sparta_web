@@ -38,13 +38,13 @@ for tr in trs:
 	# body-content > div.newest-list > div > table > tbody > tr:nth-child(1) > td.info > a.artist.ellipsis
 	artist = tr.select_one('td.info > a.artist.ellipsis').text
 	# print(artist)
-	
+
 	print(rank, title, artist)
-	
-	# DB에 크롤링한 지니뮤직 데이터 저장하기
-	doc = {
-		'rank': rank,
-		'title': title,
-		'artist': artist
-	}
-	db.genie.insert_one(doc)
+
+	# # DB에 크롤링한 지니뮤직 데이터 저장하기
+	# doc = {
+	# 	'rank': rank,
+	# 	'title': title,
+	# 	'artist': artist
+	# }
+	# db.genie.insert_one(doc)
