@@ -1,3 +1,10 @@
+from pymongo import MongoClient
+
+# 로컬에서 돌아가는 mongoDB에 연결
+client = MongoClient('localhost', 27017)
+# dbsparta 이름을 가진 DB에 접속
+db = client.dbsparta
+
 # pymongoDB 코드 요약
 # 저장 - 예시
 doc = {'name':'bobby','age':21}
