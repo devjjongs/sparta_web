@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+
+    <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+
+    <!--    <link rel="stylesheet" type="text/css" href="index_css.css">&lt;!&ndash;css 파일 분리하기&ndash;&gt;-->
+
+    <style>
+        .wrap {
+            width: 500px;
+            margin: 20px auto;
+            font-family: 'Dongle', sans-serif;
+            font-size: 25px;
+        }
+
+        .product_image {
+            width: 500px;
+            height: 300px;
+            margin: auto;
+
+            background-color: aqua;
+
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDsfqpHnCHBF-_OhlSjco0eNy_JWRM-yYHgA&usqp=CAU");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .product_info {
+            width: 500px;
+            margin: 20px 0px;
+        }
+
+        .product_name {
+            font-size: 70px;
+        }
+
+        .product_price {
+            font-size: 35px;
+        }
+
+        .product_detail {
+            font-size: 25px;
+        }
+
+        .order_btn {
+            width: 100px;
+            display: block;
+            margin: auto;
+        }
+
+        .rate {
+            color: green;
+        }
+
+        .table-sm {
+            margin-top: 30px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            ex_rate();
+            order_list();
+        });
+
+        function ex_rate() {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/rate",
+                data: {},
+                success: function (response) {
+                    // console.log(response)
+                    let WD_rate = response['rate'];
+
+                    $('#WD_rate').text(WD_rate);
+                }
+            })
+        }
+
+        function order_complete() {
+            let name = $('#name').val();
+            let count = $('#product-count').val();
+            let address = $('#address').val();
+            let tel = $('#tel').val();
+
+            $.ajax({
+                type: "POST",
+                url: "/order",
+                data: {name_give: name, count_give: count, address_give: address, tel_give: tel},
+                success: function (response) {
+                    if (response["result"] == "success") {
+                        alert(response["msg"]);
+                        window.location.reload();
+                    }
+                }
+            })
+        }
+
+        function order_list() {
+            $.ajax({
+                type: "GET",
+                url: "/order",
+                data: {},
+                success: function (response) {
+                    if (response["result"] == "success") {
+                        let orders = response['orders'];
+
+                        for (let i = 0; i < orders.length; i++) {
+                            let name = orders[i]['name'];
+                            let count = orders[i]['count'];
+                            let address = orders[i]['address'];
+                            let tel = orders[i]['tel'];
+
+                            let temp_html = `<tr>
+                                                <th scope="row">${name}</th>
+                                                <td>${count}</td>
+                                                <td>${address}</td>
+                                                <td>${tel}</td>
+                                            </tr>`
+
+                            $('#order-info').append(temp_html);
+                        }
+                    }
+                }
+            })
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="wrap">
+        <div>
+            <div class="product_image"></div>
+            <div class="product_info">
+                <h1 class="product_name">양초를 팝니다&nbsp<span class="product_price">가격 : 3,000원 / 개</span></h1>
+                <p class="product_detail">이 양초는 사실 특별한 힘을 가지고 있어요. 양초를 켜고 소원을 빌면 짜자잔 뭐든지 이뤄지게 된답니다. 하나 사가세요! 향이 아주
+                    좋아요</p>
+                <p class="rate">원-달러 환율 :<span id="WD_rate">-----</span> 원</p>
+            </div>
+        </div>
+
+
+        <div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">주문자이름</span>
+                </div>
+                <input id="name" type="text" class="form-control" aria-label="Default"
+                       aria-describedby="inputGroup-sizing-default"
+                       autocomplete="off">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text">수량</label>
+                </div>
+                <select class="custom-select" id="product-count">
+                    <option selected>-- 수량을 선택하세요 --</option>
+                    <option value="1">1개</option>
+                    <option value="2">2개</option>
+                    <option value="3">3개</option>
+                    <option value="4">4개</option>
+                    <option value="5">5개</option>
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">주소</span>
+                </div>
+                <input id="address" type="text" class="form-control" aria-label="Default"
+                       aria-describedby="inputGroup-sizing-default"
+                       autocomplete="off">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">전화번호</span>
+                </div>
+                <input id="tel" type="text" class="form-control" aria-label="Default"
+                       aria-describedby="inputGroup-sizing-default"
+                       autocomplete="off">
+            </div>
+        </div>
+
+        <input class="btn btn-primary order_btn" onclick="order_complete()" type="submit" value="주문하기">
+        <div>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">이름</th>
+                        <th scope="col">수량</th>
+                        <th scope="col">주소</th>
+                        <th scope="col">전화번호</th>
+                    </tr>
+                </thead>
+                <tbody id="order-info">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>
