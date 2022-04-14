@@ -4,7 +4,8 @@ app = Flask(__name__)
 
 from pymongo import MongoClient
 
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb://test:test@localhost', 27017)
+# client = MongoClient('localhost', 27017)
 db = client.dbhomework
 
 
@@ -36,7 +37,7 @@ def save_order ():
 
 # 주문 목록보기(Read) API
 @app.route('/order', methods=['GET'])
-def view_orders():
+def view_orders ():
     orders = list(db.orders.find({}, {'_id': False}))
     return jsonify({'result': 'success', 'orders': orders})
 
